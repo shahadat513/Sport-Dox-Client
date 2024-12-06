@@ -33,14 +33,19 @@ const Navbar = () => {
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
                         <NavLink to="/"><li><a>Home</a></li></NavLink>
-                        <NavLink to="/"><li><a>All Sports Equipment</a></li></NavLink>
+                        <NavLink to="/allEquipment"><li><a>All Sports Equipment</a></li></NavLink>
                         <NavLink to="/blogs"><li><a>Blogs</a></li></NavLink>
                         <NavLink to="/addEquipment"><li><a>Add Equipment</a></li></NavLink>
 
                     </ul>
                 </div>
-                <div className="navbar-end">
-                    <a className="btn">Log in</a>
+                <div className="navbar-end gap-4">
+                <NavLink to="/signin"><div className="">
+                    <a className="btn">Sign in</a>
+                </div></NavLink>
+                <NavLink to="/signup"><div className="">
+                    <a className="btn">Sign UP</a>
+                </div></NavLink>
                 </div>
             </div>
         </div>

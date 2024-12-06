@@ -34,11 +34,9 @@ const AddEquipment = () => {
                         text: "Product Added Successfully",
                         icon: "success"
                       });
-                    form.reset()
+                    // form.reset()
                 }
             })
-
-
     }
 
     return (
