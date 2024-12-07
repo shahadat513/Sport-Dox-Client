@@ -1,9 +1,14 @@
-import { NavLink } from "react-router-dom";
+import { useContext } from "react";
+import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../providers/AuthProvider";
 
 const Navbar = () => {
+    const { user, handleLogOut } = useContext(AuthContext);
+
     return (
-        <div className="bg-blue-800 text-white">
+        <div className="bg-blue-800 text-black md:text-white">
             <div className="navbar w-11/12 mx-auto">
+                {/* Navbar Start */}
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -24,32 +29,54 @@ const Navbar = () => {
                             tabIndex={0}
                             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
                             <NavLink to="/"><li><a>Home</a></li></NavLink>
-                            <NavLink to="/"><li><a>All Sports Equipment</a></li></NavLink>
+                            <NavLink to="/allEquipment"><li><a>All Sports Equipment</a></li></NavLink>
                             <NavLink to="/blogs"><li><a>Blogs</a></li></NavLink>
                         </ul>
                     </div>
                     <NavLink to="/"><a className="btn btn-ghost text-xl">SPORT-DOX</a></NavLink>
                 </div>
+                {/* Navbar Center */}
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
                         <NavLink to="/"><li><a>Home</a></li></NavLink>
                         <NavLink to="/allEquipment"><li><a>All Sports Equipment</a></li></NavLink>
                         <NavLink to="/blogs"><li><a>Blogs</a></li></NavLink>
                         <NavLink to="/addEquipment"><li><a>Add Equipment</a></li></NavLink>
-
                     </ul>
                 </div>
+                {/* Navbar End */}
                 <div className="navbar-end gap-4">
-                <NavLink to="/signin"><div className="">
-                    <a className="btn">Sign in</a>
-                </div></NavLink>
-                <NavLink to="/signup"><div className="">
-                    <a className="btn">Sign UP</a>
-                </div></NavLink>
+                    {user?.email ? (
+                        <div className="flex gap-2 items-center">
+                            <div className="tooltip tooltip-bottom" data-tip={user.displayName || "User"}>
+                                <img
+                                    className="rounded-full h-10 w-10 cursor-pointer"
+                                    src={user.photoURL || "https://via.placeholder.com/40"} // Placeholder for users without photo
+                                    alt="User Profile"
+                                />
+                            </div>
+                            <button onClick={handleLogOut} className="btn btn-secondary">
+                                Sign Out
+                            </button>
+                        </div>
+                    ) : (
+                        <div className="flex justify-end gap-2">
+                            <NavLink to="/signin">
+                                <div>
+                                    <a className="btn btn-primary">Sign In</a>
+                                </div>
+                            </NavLink>
+                            <NavLink to="/signup">
+                                <div>
+                                    <a className="btn btn-secondary">Sign Up</a>
+                                </div>
+                            </NavLink>
+                        </div>
+                    )}
                 </div>
             </div>
         </div>
     );
-}
+};
 
 export default Navbar;

@@ -21,31 +21,31 @@ const routes = createBrowserRouter([
                 loader: () => fetch('http://localhost:5000/products')
             },
             {
-                path: "/allEquipment",
+                path: "allEquipment",
                 element: <AllEquipment></AllEquipment>,
                 loader: () => fetch('http://localhost:5000/products') 
                 
             },
             {
-                path: "/blogs",
+                path: "blogs",
                 element: <Blogs></Blogs>
             },
             {
-                path: "/addEquipment",
+                path: "addEquipment",
                 element: <AddEquipment></AddEquipment>                
 
             },
             {
-                path: "/cardDetails/:id",
+                path: "cardDetails/:id",
                 element: <CardDetails></CardDetails>,
                 loader: () => fetch('http://localhost:5000/products') 
             },
             {
-                path: "/signin",
+                path: "signin",
                 element: <SignIn></SignIn>,
             },
             {
-                path: "/signup",
+                path: "signup",
                 element: <SignUp></SignUp>,
             }
         ]
