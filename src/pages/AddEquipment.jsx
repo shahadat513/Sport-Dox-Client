@@ -10,26 +10,28 @@ const AddEquipment = () => {
 
         const form = event.target;
 
-        const name = form.name.value;
+        const name = form.itemName.value;
         const category = form.category.value;
         const description = form.description.value;
         const price = form.price.value;
         const delivery = form.delivery.value;
         const stock = form.stock.value;
+        const rating = form.rating.value;
         const image = form.image.value;
         const customization = form.customization.value;
 
-        const allProducts = { 
-            name, 
-            category, 
-            description, 
-            price, 
-            delivery, 
-            stock, 
-            image, 
+        const allProducts = {
+            name,
+            category,
+            description,
+            price,
+            delivery,
+            stock,
+            rating,
+            image,
             customization,
             userName: user?.displayName,
-            userEmail: user?.email 
+            userEmail: user?.email
         };
 
         // Send data to the server
@@ -61,6 +63,32 @@ const AddEquipment = () => {
                         <h1 className="text-3xl font-bold text-center pb-5">Add Product</h1>
                     </div>
                     <form onSubmit={handleSubmit}>
+
+                        {/* User Details Row */}
+                        <div className="md:flex gap-8">
+                            <label className="form-control md:w-1/2">
+                                <div className="label">
+                                    <span className="label-text text-xl font-semibold">User Name</span>
+                                </div>
+                                <input
+                                    type="text"
+                                    value={user?.displayName || ''}
+                                    className="input input-bordered w-full"
+                                    readOnly
+                                />
+                            </label>
+                            <label className="form-control md:w-1/2">
+                                <div className="label">
+                                    <span className="label-text text-xl font-semibold">User Email</span>
+                                </div>
+                                <input
+                                    type="email"
+                                    value={user?.email || ''}
+                                    className="input input-bordered w-full"
+                                    readOnly
+                                />
+                            </label>
+                        </div>
                         {/* 1st row */}
                         <div className="md:flex gap-8 pb-3">
                             <label className="form-control md:w-1/2">
@@ -69,10 +97,9 @@ const AddEquipment = () => {
                                 </div>
                                 <input
                                     type="text"
-                                    name="name"
+                                    name="itemName"
                                     placeholder="Enter Product Name"
                                     className="input input-bordered w-full"
-                                    readOnly // Prevent modification of this field
                                 />
                             </label>
                             <label className="form-control md:w-1/2">
@@ -141,12 +168,12 @@ const AddEquipment = () => {
                         <div className="md:flex gap-8 pb-3">
                             <label className="form-control md:w-1/2">
                                 <div className="label">
-                                    <span className="label-text text-xl font-semibold">Image URL</span>
+                                    <span className="label-text text-xl font-semibold">Rating</span>
                                 </div>
                                 <input
-                                    type="text"
-                                    name="image"
-                                    placeholder="Enter Product Image URL"
+                                    type="number"
+                                    name="rating"
+                                    placeholder="Enter Product Rating"
                                     className="input input-bordered w-full"
                                 />
                             </label>
@@ -162,28 +189,16 @@ const AddEquipment = () => {
                                 />
                             </label>
                         </div>
-                        {/* User Details Row */}
-                        <div className="md:flex gap-8">
-                            <label className="form-control md:w-1/2">
+                        <div className="grid pb-3 col-span-2">
+                            <label className="form-control md:w-full">
                                 <div className="label">
-                                    <span className="label-text text-xl font-semibold">User Name</span>
+                                    <span className="label-text text-xl font-semibold">Image URL</span>
                                 </div>
                                 <input
                                     type="text"
-                                    value={user?.displayName || ''}
+                                    name="image"
+                                    placeholder="Enter Product Image URL"
                                     className="input input-bordered w-full"
-                                    readOnly
-                                />
-                            </label>
-                            <label className="form-control md:w-1/2">
-                                <div className="label">
-                                    <span className="label-text text-xl font-semibold">User Email</span>
-                                </div>
-                                <input
-                                    type="email"
-                                    value={user?.email || ''}
-                                    className="input input-bordered w-full"
-                                    readOnly
                                 />
                             </label>
                         </div>

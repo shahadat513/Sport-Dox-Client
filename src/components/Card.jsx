@@ -1,18 +1,32 @@
-import { useLoaderData } from "react-router-dom";
-import Cards from "./Cards";
+/* eslint-disable react/prop-types */
+import { NavLink } from "react-router-dom";
 
-const Card = () => {
-    const product = useLoaderData()
+const Card = ({ product }) => {
+    const { _id, name, category, price, image, stock, description } = product
     return (
         <div>
-            <h1 className="mb-5 text-2xl md:text-5xl font-bold text-center py-10">All Products</h1>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-11/12 mx-auto gap-8 my-8">
-                {
-                    product?.map(product => <Cards key={product._id} product={product}></Cards>)
-                }
+            <div className="card bg-base-100 w-96 shadow-xl">
+                <figure>
+                    <img
+                        src={image}
+                        alt="Image Not Found" />
+                </figure>
+                <div className="card-body">
+                    <h2 className="card-title">
+                        {name}
+                        <div className="badge badge-secondary">Available</div>
+                        <div className="badge badge-secondary">{stock}</div>
+                    </h2>
+                    <h3 className="text-green-500">{category}</h3>
+                    <h4 className="text-2xl text-red-500 font-bold">{price}</h4>
+                    <p>{description}</p>
+                    <div className="card-actions justify-center py-2">
+                        <NavLink to={`/cardDetails/${_id}`}><div className="btn text-blue-500 btn-outline">View Details</div></NavLink>
+                    </div>
+                </div>
             </div>
         </div>
     );
-}
+};
 
 export default Card;

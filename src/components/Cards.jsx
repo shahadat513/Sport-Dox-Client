@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { NavLink } from "react-router-dom";
 
 const Cards = ({ product }) => {
@@ -8,7 +9,7 @@ const Cards = ({ product }) => {
                 <figure>
                     <img
                         src={image}
-                        alt="Shoes" />
+                        alt="Image Not Found" />
                 </figure>
                 <div className="card-body">
                     <h2 className="card-title">
