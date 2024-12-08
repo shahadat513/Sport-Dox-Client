@@ -90,7 +90,7 @@ const SignUp = () => {
   
         const newUser = { name: displayName, email, image: photoURL };
   
-        // Save user data to backend
+       
         fetch("https://sportdox-server.vercel.app/users", {
           method: "POST",
           headers: {
@@ -101,13 +101,13 @@ const SignUp = () => {
           .then(() => {
             console.log("User data saved successfully.");
   
-            // Show success alert
+            
             Swal.fire({
               title: "Success!",
               text: "Logged in with Google successfully!",
               icon: "success",
             }).then(() => {
-              // Navigate after user clicks "OK"
+            
               navigate("/");
             });
           })
@@ -115,7 +115,7 @@ const SignUp = () => {
             console.error("Error saving user to database:", error.message);
             setError("Failed to save user data. Please try again.");
   
-            // Show error alert
+            
             Swal.fire("Error", "Failed to save user data. Please try again.", "error");
           });
   
@@ -125,7 +125,7 @@ const SignUp = () => {
         console.error("Google Sign-Up Error:", error.message);
         setError(error.message);
   
-        // Show error alert
+        
         Swal.fire("Error", error.message, "error");
       });
   };

@@ -33,7 +33,7 @@ const Update = () => {
             nameUser, emailUser, name, category, description, price, delivery, stock, rating, image, customization,
         };
 
-        // Send data to the server
+       
         fetch(`https://sportdox-server.vercel.app/${_id}`, {
             method: 'PUT',
             headers: {
@@ -49,7 +49,7 @@ const Update = () => {
                         text: 'Product Updated Successfully',
                         icon: 'success',
                     });
-                    form.reset(); // Reset the form after submission
+                    form.reset(); 
                     navigate('/')
 
                 }
@@ -92,7 +92,7 @@ const Update = () => {
                         </label>
                     </div>
 
-                    {/* Rest of the Form */}
+                   
                     <div className="md:flex gap-8 pb-3">
                         <label className="form-control md:w-1/2">
                             <div className="label">

@@ -16,7 +16,6 @@ const Card = ({ product }) => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                // Delete from database using _id
                 fetch(`https://sportdox-server.vercel.app/${_id}`, {
                     method: "DELETE"
                 })

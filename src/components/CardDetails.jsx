@@ -2,15 +2,15 @@ import { NavLink, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 const CardDetails = () => {
-    const { id } = useParams(); // Get the product ID from the URL
-    
+    const { id } = useParams();
     console.log(id);
 
     const [product, setProduct] = useState(null);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch(`https://sportdox-server.vercel.app/products/${id}`) // Fetch data for the specific product
+        fetch(`https://sportdox-server.vercel.app/products/${id}`) 
+        
             .then((res) => res.json())
             .then((data) => {
                 setProduct(data);
