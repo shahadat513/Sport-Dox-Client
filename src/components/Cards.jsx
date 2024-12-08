@@ -8,6 +8,7 @@ const Cards = ({ product }) => {
             <div className="card bg-base-100 w-96 shadow-xl">
                 <figure>
                     <img
+                    className="md:h-72 md:w-72 rounded-2xl"
                         src={image}
                         alt="Image Not Found" />
                 </figure>

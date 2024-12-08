@@ -49,7 +49,7 @@ const SignUp = () => {
         const newUser = { name, email, image };
   
         // Save user data to backend
-        fetch("http://localhost:5000/users", {
+        fetch("https://sportdox-server.vercel.app/users", {
           method: "POST",
           headers: {
             "content-type": "application/json",
@@ -91,7 +91,7 @@ const SignUp = () => {
         const newUser = { name: displayName, email, image: photoURL };
   
         // Save user data to backend
-        fetch("http://localhost:5000/users", {
+        fetch("https://sportdox-server.vercel.app/users", {
           method: "POST",
           headers: {
             "content-type": "application/json",

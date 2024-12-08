@@ -4,6 +4,7 @@ import { createUserWithEmailAndPassword, onAuthStateChanged, signOut, updateProf
 
 export const AuthContext = createContext(null);
 
+// eslint-disable-next-line react/prop-types
 const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(false);

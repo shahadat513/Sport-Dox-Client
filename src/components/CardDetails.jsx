@@ -1,13 +1,16 @@
-import { useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 const CardDetails = () => {
     const { id } = useParams(); // Get the product ID from the URL
+    
+    console.log(id);
+
     const [product, setProduct] = useState(null);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/products/${id}`) // Fetch data for the specific product
+        fetch(`https://sportdox-server.vercel.app/products/${id}`) // Fetch data for the specific product
             .then((res) => res.json())
             .then((data) => {
                 setProduct(data);
@@ -15,7 +18,6 @@ const CardDetails = () => {
             })
             .catch((err) => console.error("Failed to fetch product:", err));
     }, [id]);
-
     if (loading) {
         return <p className="text-center text-xl font-bold">Loading...</p>;
     }
@@ -26,15 +28,16 @@ const CardDetails = () => {
 
     const { name, category, price, image, stock, description, delivery, customization, rating } = product;
 
+   
     return (
         <div className="flex flex-col items-center min-h-screen bg-gray-100 p-8">
-            <div className="w-full max-w-3xl bg-white shadow-lg rounded-lg overflow-hidden">
+            <div className="w-9/12 p-10  bg-white shadow-lg rounded-lg overflow-hidden">
                 <div className="flex flex-col lg:flex-row">
-                    <div className="lg:w-1/2">
-                        <img src={image} alt={name} className="w-full h-96 object-cover" />
+                    <div className="lg:w-1/2 justify-center">
+                        <img src={image} alt={name} className="md:h-96 md:w-96 object-cover rounded-2xl" />
                     </div>
                     <div className="lg:w-1/2 p-6">
-                        <h2 className="text-3xl font-bold text-gray-800 mb-4">{name}</h2>
+                        <h2 className="text-xl md:text-3xl font-bold text-gray-800 mb-4">{name}</h2>
                         <p className="text-gray-600 text-lg mb-4">
                             <span className="font-semibold">Category:</span> {category}
                         </p>
@@ -56,6 +59,7 @@ const CardDetails = () => {
                         <p className="text-gray-600">
                             <span className="font-semibold">Description:</span> {description}
                         </p>
+                        <NavLink to="/"><h1 className="btn btn-error mt-5  text-right justify-end">Close</h1></NavLink>
                     </div>
                 </div>
             </div>

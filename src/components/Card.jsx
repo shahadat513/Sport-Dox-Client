@@ -1,27 +1,86 @@
 /* eslint-disable react/prop-types */
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Card = ({ product }) => {
-    const { _id, name, category, price, image, stock, description } = product
+    const { _id, name, category, price, image, rating } = product;
+
+    const handleDelete = () => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Delete from database using _id
+                fetch(`https://sportdox-server.vercel.app/${_id}`, {
+                    method: "DELETE"
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.deletedCount) {
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your file has been deleted.",
+                                icon: "success"
+                            });
+                        }
+                    })
+                    .catch(error => {
+                        console.error("Error deleting product:", error);
+                        Swal.fire({
+                            title: "Error!",
+                            text: "Failed to delete the product.",
+                            icon: "error"
+                        });
+                    });
+            }
+        });
+    };
+
     return (
         <div>
-            <div className="card bg-base-100 w-96 shadow-xl">
-                <figure>
+            <div className="hero bg-base-200 rounded-2xl">
+                <div className="hero-content flex-col lg:flex-row gap-10 justify-between p-5">
                     <img
+                        className="h-56 w-60 rounded-2xl"
                         src={image}
-                        alt="Image Not Found" />
-                </figure>
-                <div className="card-body">
-                    <h2 className="card-title">
-                        {name}
-                        <div className="badge badge-secondary">Available</div>
-                        <div className="badge badge-secondary">{stock}</div>
-                    </h2>
-                    <h3 className="text-green-500">{category}</h3>
-                    <h4 className="text-2xl text-red-500 font-bold">{price}</h4>
-                    <p>{description}</p>
-                    <div className="card-actions justify-center py-2">
-                        <NavLink to={`/cardDetails/${_id}`}><div className="btn text-blue-500 btn-outline">View Details</div></NavLink>
+                        alt="Image Not Found"
+                    />
+                    <div className="flex flex-col gap-3">
+                        <h1 className="text-2xl font-bold">
+                            Name : <span className="text-lg font-normal">{name}</span>
+                        </h1>
+                        <h1 className="text-2xl font-bold">
+                            Category : <span className="text-lg font-normal">{category}</span>
+                        </h1>
+                        <h1 className="text-2xl font-bold">
+                            Price : <span className="text-lg font-normal">{price}$</span>
+                        </h1>
+                        <h1 className="text-2xl font-bold">
+                            Rating :{" "}
+                            <span className="text-lg font-normal">
+                                {rating} <span className="text-yellow-500">★★★★★</span>
+                            </span>
+                        </h1>
+
+                        <div className="flex gap-4 mt-3">
+                            <Link to={`/update/${_id}`} >
+                                <div className="btn bg-red-700 text-white">
+                                    <i className="fa-solid fa-pen"></i>
+                                </div>
+                            </Link>
+                            <div
+                                onClick={handleDelete}
+                                className="btn bg-red-700 text-white"
+                            >
+                                <i className="fa-solid fa-trash"></i>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

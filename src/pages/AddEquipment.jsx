@@ -10,6 +10,8 @@ const AddEquipment = () => {
 
         const form = event.target;
 
+        const nameUser = form.nameUser.value;
+        const emailUser = form.emailUser.value;
         const name = form.itemName.value;
         const category = form.category.value;
         const description = form.description.value;
@@ -21,6 +23,8 @@ const AddEquipment = () => {
         const customization = form.customization.value;
 
         const allProducts = {
+            nameUser, // User name
+            emailUser, // User email
             name,
             category,
             description,
@@ -30,12 +34,10 @@ const AddEquipment = () => {
             rating,
             image,
             customization,
-            userName: user?.displayName,
-            userEmail: user?.email
         };
 
         // Send data to the server
-        fetch('http://localhost:5000/products', {
+        fetch('https://sportdox-server.vercel.app/products', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -52,6 +54,9 @@ const AddEquipment = () => {
                     });
                     form.reset(); // Reset the form after submission
                 }
+            })
+            .catch((error) => {
+                console.error('Error adding product:', error);
             });
     };
 
@@ -59,11 +64,8 @@ const AddEquipment = () => {
         <>
             <div className="bg-base-300">
                 <div className="w-11/12 mx-auto py-24">
-                    <div>
-                        <h1 className="text-3xl font-bold text-center pb-5">Add Product</h1>
-                    </div>
+                    <h1 className="text-3xl font-bold text-center pb-5">Add Product</h1>
                     <form onSubmit={handleSubmit}>
-
                         {/* User Details Row */}
                         <div className="md:flex gap-8">
                             <label className="form-control md:w-1/2">
@@ -72,6 +74,7 @@ const AddEquipment = () => {
                                 </div>
                                 <input
                                     type="text"
+                                    name="nameUser"
                                     value={user?.displayName || ''}
                                     className="input input-bordered w-full"
                                     readOnly
@@ -83,13 +86,15 @@ const AddEquipment = () => {
                                 </div>
                                 <input
                                     type="email"
+                                    name="emailUser"
                                     value={user?.email || ''}
                                     className="input input-bordered w-full"
                                     readOnly
                                 />
                             </label>
                         </div>
-                        {/* 1st row */}
+
+                        {/* Rest of the Form */}
                         <div className="md:flex gap-8 pb-3">
                             <label className="form-control md:w-1/2">
                                 <div className="label">
@@ -114,7 +119,6 @@ const AddEquipment = () => {
                                 />
                             </label>
                         </div>
-                        {/* 2nd row */}
                         <div className="md:flex gap-8 pb-3">
                             <label className="form-control md:w-1/2">
                                 <div className="label">
@@ -139,7 +143,6 @@ const AddEquipment = () => {
                                 />
                             </label>
                         </div>
-                        {/* 3rd row */}
                         <div className="md:flex gap-8 pb-3">
                             <label className="form-control md:w-1/2">
                                 <div className="label">
@@ -164,7 +167,6 @@ const AddEquipment = () => {
                                 />
                             </label>
                         </div>
-                        {/* 4th row */}
                         <div className="md:flex gap-8 pb-3">
                             <label className="form-control md:w-1/2">
                                 <div className="label">
@@ -189,8 +191,8 @@ const AddEquipment = () => {
                                 />
                             </label>
                         </div>
-                        <div className="grid pb-3 col-span-2">
-                            <label className="form-control md:w-full">
+                        <div className="pb-3">
+                            <label className="form-control">
                                 <div className="label">
                                     <span className="label-text text-xl font-semibold">Image URL</span>
                                 </div>
@@ -203,7 +205,7 @@ const AddEquipment = () => {
                             </label>
                         </div>
                         <input
-                            className="w-full p-2 bg-gray-600 text-white mt-4"
+                            className="w-full p-2 bg-gray-600 text-white mt-4 cursor-pointer"
                             type="submit"
                             value="Add Product"
                         />

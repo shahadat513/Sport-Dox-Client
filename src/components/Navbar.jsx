@@ -30,7 +30,8 @@ const Navbar = () => {
                             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
                             <NavLink to="/"><li><a>Home</a></li></NavLink>
                             <NavLink to="/allEquipment"><li><a>All Sports Equipment</a></li></NavLink>
-                            <NavLink to="/blogs"><li><a>Blogs</a></li></NavLink>
+                            <NavLink to="/addEquipment"><li><a>Add Equipment</a></li></NavLink>
+                            <NavLink to="/myEquipment"><li><a>My Equipment List</a></li></NavLink>
                         </ul>
                     </div>
                     <NavLink to="/"><a className="btn btn-ghost text-xl">SPORT-DOX</a></NavLink>
@@ -40,8 +41,8 @@ const Navbar = () => {
                     <ul className="menu menu-horizontal px-1">
                         <NavLink to="/"><li><a>Home</a></li></NavLink>
                         <NavLink to="/allEquipment"><li><a>All Sports Equipment</a></li></NavLink>
-                        <NavLink to="/blogs"><li><a>Blogs</a></li></NavLink>
                         <NavLink to="/addEquipment"><li><a>Add Equipment</a></li></NavLink>
+                        <NavLink to="/myEquipment"><li><a>My Equipment List</a></li></NavLink>
                     </ul>
                 </div>
                 {/* Navbar End */}
@@ -51,7 +52,7 @@ const Navbar = () => {
                             <div className="tooltip tooltip-bottom" data-tip={user.displayName || "User"}>
                                 <img
                                     className="rounded-full h-10 w-10 cursor-pointer"
-                                    src={user.photoURL || "https://via.placeholder.com/40"} // Placeholder for users without photo
+                                    src={user.photoURL || ""} 
                                     alt="User Profile"
                                 />
                             </div>

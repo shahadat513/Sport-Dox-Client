@@ -3,12 +3,14 @@ import {
 } from "react-router-dom";
 import MainLayout from "../layout/MainLayout";
 import Home from "../pages/Home";
-import Blogs from "../pages/Blogs";
 import AddEquipment from "../pages/AddEquipment";
 import AllEquipment from "../pages/AllEquipment";
 import CardDetails from "../components/CardDetails";
 import SignIn from "../components/SignIn";
 import SignUp from "../components/SignUp";
+import MyEquipment from "../pages/MyEquipment";
+import Update from "../components/Update";
+import PrivateRoutes from "../privateRoutes/PrivateRoutes";
 
 const routes = createBrowserRouter([
     {
@@ -18,35 +20,48 @@ const routes = createBrowserRouter([
             {
                 path: "/",
                 element: <Home></Home>,
-                loader: () => fetch('http://localhost:5000/products')
+                loader: () => fetch('https://sportdox-server.vercel.app/products')
             },
             {
-                path: "allEquipment",
+                path: "/allEquipment",
                 element: <AllEquipment></AllEquipment>,
-                loader: () => fetch('http://localhost:5000/products') 
-                
-            },
-            {
-                path: "blogs",
-                element: <Blogs></Blogs>
-            },
-            {
-                path: "addEquipment",
-                element: <AddEquipment></AddEquipment>                
+                loader: () => fetch('https://sportdox-server.vercel.app/products')
 
             },
             {
-                path: "cardDetails/:id",
-                element: <CardDetails></CardDetails>,
-                loader: () => fetch('http://localhost:5000/products') 
+                path: "/addEquipment",
+                element: <PrivateRoutes>
+                    <AddEquipment></AddEquipment>
+                </PrivateRoutes>
+
             },
             {
-                path: "signin",
+                path: "/cardDetails/:id",
+                element: <PrivateRoutes>
+                    <CardDetails></CardDetails>
+                </PrivateRoutes>,
+                loader: () => fetch('https://sportdox-server.vercel.app/products')
+            },
+            {
+                path: "/signin",
                 element: <SignIn></SignIn>,
             },
             {
-                path: "signup",
+                path: "/signup",
                 element: <SignUp></SignUp>,
+            },
+            {
+                path: "/myEquipment",
+                element: <PrivateRoutes>
+                    <MyEquipment></MyEquipment>
+                </PrivateRoutes>,
+            },
+            {
+                path: "/update/:id",
+                element: <PrivateRoutes>
+                    <Update></Update>
+                </PrivateRoutes>,
+                loader: ({ params }) => fetch(`https://sportdox-server.vercel.app/${params.id}`)
             }
         ]
     },
