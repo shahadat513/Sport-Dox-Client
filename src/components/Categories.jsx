@@ -8,7 +8,7 @@ const Categories = () => {
                 subtitle={"A tailored approach to exploring career opportunities that align with your unique skills, interests, and br aspirations, helping you make confident and informed choices for a rewarding professional journey."}
             ></SharedTitle>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 text-black">
                 <div className="card bg-base-100 shadow-xl">
                     <figure className="px-10 pt-10">
                         <img

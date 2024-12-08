@@ -11,7 +11,7 @@ const Faq = () => {
                     subtitle={"A tailored approach to exploring career opportunities that align with your unique skills, interests, and br aspirations, helping you make confident and informed choices for a rewarding professional journey."}
                 ></SharedTitle>
             </div>
-            <div className="hero mb-24 font-Lato">
+            <div className="hero mb-24 font-Lato text-black">
                 <div className="hero-content flex justify-between flex-col lg:flex-row gap-4 p-6 rounded-lg border-2 mt-2 w-full">
                 <div>
                 <Lottie animationData={faqImage} className='h-96 w-96 rounded-lg'/>

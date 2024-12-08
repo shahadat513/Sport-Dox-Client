@@ -51,7 +51,7 @@ const Card = ({ product }) => {
                         src={image}
                         alt="Image Not Found"
                     />
-                    <div className="flex flex-col gap-3">
+                    <div className="flex flex-col gap-3 text-black">
                         <h1 className="text-2xl font-bold">
                             Name : <span className="text-lg font-normal">{name}</span>
                         </h1>

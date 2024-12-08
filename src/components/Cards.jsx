@@ -5,7 +5,7 @@ const Cards = ({ product }) => {
     const { _id, name, category, price, image, stock, description } = product
     return (
         <div>
-            <div className="card bg-base-100 w-96 shadow-xl">
+            <div className="card bg-base-100 w-96 shadow-xl text-black">
                 <figure>
                     <img
                     className="md:h-72 md:w-72 rounded-2xl"
