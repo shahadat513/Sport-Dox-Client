@@ -1,29 +1,71 @@
-# SPORT_DOX
+# SPORT_DOX - Sports Management Website ⚽
 
 **Live Website:** [SPORT_DOX](https://assignment-10-5f7fc.web.app/)
 
-## Project Overview
+Project Screenshot: https://i.ibb.co.com/VWXWYvbK/image.png
 
-[Your Website Name] is a dynamic, feature-rich web application designed to provide an engaging user experience. The project showcases the fundamentals of web development and demonstrates interactive features tailored to modern user needs.
+## 📌 Project Overview
+SPORT_DOX is a dynamic, feature-rich web application designed to provide an engaging user experience for sports enthusiasts. The project showcases essential web development concepts and interactive features tailored to modern user needs.
 
-## Core Features
+## 🛠 Technologies Used
+- **Frontend:** React.js, Tailwind CSS, DaisyUI, React Router
+- **Backend:** Node.js, Express.js
+- **Database:** MongoDB
+- **Authentication:** Firebase Authentication, JWT
+- **Other Libraries:** Axios, Moment.js, Framer Motion
 
-The project employs several essential concepts, including:
+## 🔥 Core Features
+- **User Authentication:** Secure login and registration with Firebase (Google Login included)
+- **Sports Listings:** Dynamic display of various sports events and teams with filters and search functionality
+- **Event Management:** Users can book events and view their history
+- **Add & Manage Events:** Admins can add, update, and delete events
+- **Theme Customization:** Light/Dark mode switch for better accessibility
+- **Responsive Design:** Fully optimized for mobile, tablet, and desktop
 
-- **Responsive Design**: Ensures seamless operation across all devices, including desktops, tablets, and mobile phones.
-- **Interactive Components**: Enhances user engagement with dynamic content rendering and interactivity.
-- **Efficient Navigation**: Employs intuitive navigation for exploring different sections of the website effortlessly.
-- **Optimized Performance**: Designed for fast load times and smooth interactions.
+## 📦 Dependencies Used
+- `react` - Frontend library
+- `react-router-dom` - Routing
+- `axios` - HTTP requests
+- `firebase` - Authentication
+- `jsonwebtoken` - Secure token management
+- `moment` - Date and time formatting
 
-## Key Features
+## 🛠 How to Run Locally
+### 1️⃣ Clone the Repository
+```sh
+git clone https://github.com/yourusername/sport_dox.git
+cd sport_dox
+```
 
-1. **Dynamic Content Display**: Showcases engaging and up-to-date information to keep users informed and entertained.
-2. **Advanced Search and Filter**: Users can quickly find specific content or items through powerful filtering capabilities.
-3. **Customizable Options**: Allows users to personalize their experience and make informed decisions.
-4. **Security Measures**: Includes user authentication and data protection mechanisms.
-5. **Mobile-First Approach**: A fully responsive design that adapts to various screen sizes for a consistent experience.
+### 2️⃣ Install Dependencies
+```sh
+npm install
+```
 
----
+### 3️⃣ Set Up Environment Variables
+- Create a `.env` file in the root directory
+- Add Firebase and MongoDB credentials
 
-Explore the live site and experience its features firsthand. Feedback and suggestions are always welcome!
+### 4️⃣ Run the Development Server
+```sh
+npm run dev
+```
 
+### 5️⃣ Run the Backend Server
+```sh
+cd server
+npm install
+npm start
+```
+
+### 6️⃣ Open in Browser
+- Frontend: `http://localhost:5173`
+- Backend: `http://localhost:5000`
+
+## 🔗 Live Links & Resources
+- **Live Site:** [SPORT_DOX](https://assignment-10-5f7fc.web.app/)
+- **Frontend Repository:** [GitHub Client](https://github.com/yourusername/sport_dox-client)
+- **Backend Repository:** [GitHub Server](https://github.com/yourusername/sport_dox-server)
+- **Deployment:** Firebase (Frontend), Vercel/Render (Backend)
+
+🚀 *Feel free to contribute or report issues!*
