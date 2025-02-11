@@ -64,8 +64,8 @@ npm start
 
 ## 🔗 Live Links & Resources
 - **Live Site:** [SPORT_DOX](https://assignment-10-5f7fc.web.app/)
-- **Frontend Repository:** [GitHub Client](https://github.com/yourusername/sport_dox-client)
-- **Backend Repository:** [GitHub Server](https://github.com/yourusername/sport_dox-server)
+- **Frontend Repository:** [GitHub Client]([https://github.com/yourusername/sport_dox-client](https://github.com/shahadat513/Sport-Dox-Client))
+- **Backend Repository:** [GitHub Server]([https://github.com/yourusername/sport_dox-server](https://github.com/shahadat513/Sport-Dox-Server))
 - **Deployment:** Firebase (Frontend), Vercel/Render (Backend)
 
 🚀 *Feel free to contribute or report issues!*
